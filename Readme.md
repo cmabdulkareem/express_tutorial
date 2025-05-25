@@ -25,6 +25,8 @@ Open and configure package.json file based on our project requirement.
   "type": "module"
 }
 ```
+* `"start": "nodemon index.js"` this line will help use to create a program start script, after adding this line, we can start our program using command `npm start`.
+* using nodemon in our start script will help us to automatically restarts our Node.js application when file changes are detected.
 * Nodemon should be installed using command `npm i nodemon -g`, then only the start script will work
 * `"type" : "module"` to use es6 javascript environment or `"type" : "commonjs"` to use nodejs default javascript mode before introducing javascript es6.
 

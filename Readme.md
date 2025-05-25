@@ -61,3 +61,9 @@ app.post('/login', (req, res)=>{
 * `(req, res)=>{...}` : This is the callback which will be executed upon reaching `'/'` route.
 * `res.json("...")` : This is the response we are giving back from the server when client calls `'/login'` route.
 * A POST request is an HTTP method used by clients (like web browsers or apps) to send data to a server — typically to create, submit, or process something. _(Submitting a login form, Creating a new user account, Sending data to be stored in a database Uploading a file etc..)_
+
+## Test to see if everything works fine.
+
+For any get request, we can open any internet browser (eg: Google chrome, edge, mozilla etc..) and type it like `http://localhost:3000/` or `http://localhost:3000/admin` or `http://localhost:3000/admin/login`
+
+For any post reques, we need an html form to be submitted to the respective route (eg: we can simulate this in postman app with a post method request to `http://localhost:3000/login`)

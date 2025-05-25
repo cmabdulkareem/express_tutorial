@@ -1,12 +1,12 @@
 This chapter show how to create a setup a node js project and start our first expres.js application.
 
-# Step 1 : Setup new nodejs project
+## Step 1 : Setup new nodejs project
 Setup a node.js project and creates a project metadata file (package.json)
 
 **command `npm init -y`**
 This command will set up a new Node.js project in our project directory and create a package.json file, which will represent our project metadata file.
 
-# Step 2 : Configure package.json with start script
+## Step 2 : Configure package.json with start script
 Open and configure package.json file based on our project requirement.
 
 ```

@@ -1,5 +1,27 @@
 This chapter shows how to create route handler for different http requests.
 
+```
+import express from 'express'
+const app = express()
+
+app.get('/', (req, res)=>{
+    res.json("Response from '/' url")
+})
+
+app.get('/login', (req, res)=>{
+    res.json("Response from '/login' url")
+})
+
+app.post('/login', (req, res)=>{
+    res.json("Login success")
+})
+
+
+app.listen(3000, ()=>{
+    console.log("Server running on port 3000");
+})
+```
+
 ## http get request handler (for the root route '/')
 _An HTTP GET request handler that responds to GET requests made to the root URL ('/')._
 

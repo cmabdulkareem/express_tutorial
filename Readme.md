@@ -17,7 +17,7 @@ Open and configure package.json file based on our project requirement.
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "<span title="should install nodemo using command : npm i nodemon -g">nodemon<span> <span title="index.js is the main file">index.js<span>"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +25,7 @@ Open and configure package.json file based on our project requirement.
   "type": "module"
 }
 ```
+* Nodemon should be installed using command `npm i nodemon -g`, then only the start script will work
 
 
 

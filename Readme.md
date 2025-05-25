@@ -26,7 +26,7 @@ Open and configure package.json file based on our project requirement.
 }
 ```
 * Nodemon should be installed using command `npm i nodemon -g`, then only the start script will work
-
+* `"type" : "module"` to use es6 javascript environment or `"type" : "commonjs"` to use nodejs default javascript mode before introducing javascript es6.
 
 
 

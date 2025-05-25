@@ -51,6 +51,10 @@ app.listen(3000, () => {
 * `const app = express();` : Give all the power of the Express library to the 'app' variable by creating an Express application instance
 * `app.listen(3000, ()=>{....})` : Start the server on port 3000 and log a message when it’s running
 
+## Step 4 : Test to see if express application is running.
 
+Open any internet browser (eg: Google chrome, edge, mozilla etc..) and type `http://localhost:3000`
+
+If we can see `Cannot GET /` inside the browser this means express app is succesfully running.
 
 

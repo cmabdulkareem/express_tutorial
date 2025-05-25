@@ -24,9 +24,46 @@ export default router;
 * `const router = express.Router()` : Creates a new modular router instance to define and group route handlers separately from the main app.
 * after moving all route handlers, change all handlers from `app.` to `router.` (eg: `app.get('/', (req, res)=>{...})` to `router.get('/', (req, res)=>{...})`) 
 
+### Move all admin related routes from index.js to /routes/adminRoutes.js
+```
+/routes/adminRoutes.js
+import express from 'express'
+const router = express.Router()
+
+router.get('/', (req, res)=>{
+    res.json("Response from '/admin/' url")
+})
+
+router.get('/login', (req, res)=>{
+    res.json("Response from '/admin/login' url")
+})
+
+export default router;
+```
+* `const router = express.Router()` : Creates a new modular router instance to define and group route handlers separately from the main app.
+* after moving all route handlers, change all handlers from `app.` to `router.` (eg: `app.get('/', (req, res)=>{...})` to `router.get('/', (req, res)=>{...})`)
+* no need `/admin/` pefix for any of the admin routes, this can be configured in the next step.
+
+### Import newly created routes to main file (index.js) and use them in middlewre
+
+/index.js
+
+```
+import express from 'express'
+import userRoutes from './routes/userRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+const app = express()
+
+app.use('/', userRoutes)
+app.use('/admin/', adminRoutes)
+
+app.listen(3000, ()=>{
+    console.log("Server running on port 3000");
+})
+```
+
+* `app.use('/', userRoutes)` :
+* `app.use('/admin/, adminRoutes)` :
+They connect the route handlers from userRoutes to the root path / and the ones from adminRoutes to the /admin path, organizing the app’s URLs accordingly.
 
 ## Test to see if everything works fine.
-
-For any get request, we can open any internet browser (eg: Google chrome, edge, mozilla etc..) and type it like `http://localhost:3000/` or `http://localhost:3000/admin` or `http://localhost:3000/admin/login`
-
-For any post reques, we need an html form to be submitted to the respective route (eg: we can simulate this in postman app with a post method request to `http://localhost:3000/login`)

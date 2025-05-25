@@ -1,13 +1,13 @@
 This chapter show how to create a setup a node js project and start our first expres.js application.
 
 ## Step 1 : Setup new nodejs project
-Setup a node.js project and creates a project metadata file (package.json)
+_Setup a node.js project and creates a project metadata file (package.json)_
 
 **command `npm init -y`**
 This command will set up a new Node.js project in our project directory and create a package.json file, which will represent our project metadata file.
 
 ## Step 2 : Configure package.json with start script
-Open and configure package.json file based on our project requirement.
+_Open and configure package.json file based on our project requirement._
 
 ```
 // package.json
@@ -32,7 +32,10 @@ Open and configure package.json file based on our project requirement.
 * `"type" : "module"` to use es6 javascript environment or `"type" : "commonjs"` to use nodejs default javascript mode before introducing javascript es6.
 
 ## Step 3 : Creating our first web spplication using express.js framework on top of node.js
+_Install the Express.js library and adds it to your project's dependencies._ 
 
-_addwwr_
+_Create a file called **index.js**, this file will be the main file of our express app. Every other modules will run through only this file. (filename should match the start script and "main" inside package.json)_
+
+
 
 

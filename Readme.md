@@ -13,7 +13,7 @@ Open and configure package.json file based on our project requirement.
 {
   "name": "express_project_name",
   "version": "1.0.0",
-  "description": "This is a sample express app where it shows how an express project can be created.",
+  "description": "A sample express app.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

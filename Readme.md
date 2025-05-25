@@ -36,7 +36,7 @@ app.get('/', (req, res)=>{
 * `'/'` : This is the route path where we are looking for response.
 * `(req, res)=>{...}` : This is the callback which will be executed upon reaching `'/'` route.
 * `res.json("...")` : This is the response we are giving back from the server when client calls `'/'` route.
-
+---
 ### 2. http get request handler (for the route '/login')
 _An HTTP GET request handler that responds to GET requests made to the root URL ('/')._
 
@@ -48,7 +48,7 @@ app.get('/login', (req, res)=>{
 * `'/login'` : This is the route path where we are looking for response.
 * `(req, res)=>{...}` : This is the callback which will be executed upon reaching `'/login'` route.
 * `res.json("...")` : This is the response we are giving back from the server when client calls `'/login'` route.
-
+---
 ### 3. http post request handler (for the route '/login')
 _An HTTP POST request handler that responds to POST requests made to the URL ('/login')._
 

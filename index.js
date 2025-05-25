@@ -2,7 +2,15 @@ import express from 'express'
 const app = express()
 
 app.get('/', (req, res)=>{
-    
+    res.json("Response from '/' url")
+})
+
+app.get('/login', (req, res)=>{
+    res.json("Response from '/login' url")
+})
+
+app.post('/login', (req, res)=>{
+    res.json("Login success")
 })
 
 

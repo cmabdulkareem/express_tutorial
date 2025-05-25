@@ -36,15 +36,3 @@ app.post('/login', (req, res)=>{
 * `(req, res)=>{...}` : This is the callback which will be executed upon reaching `'/'` route.
 * `res.json("...")` : This is the response we are giving back from the server when client calls `'/login'` route.
 * A POST request is an HTTP method used by clients (like web browsers or apps) to send data to a server — typically to create, submit, or process something. _(Submitting a login form, Creating a new user account, Sending data to be stored in a database Uploading a file etc..)_
-
-## http get request handler (for all unmatched routes)
-_An HTTP GET request handler that responds to GET requests made to all unmatched routes._
-
-```
-app.get('*', (req, res)=>{
-    res.json("Error 404, Not found")
-})
-```
-* `'*'` : This is the route path where we are looking for response.
-* `(req, res)=>{...}` : This is the callback which will be executed upon reaching `'/'` route.
-* `res.json("...")` : This is the response we are giving back from the server when client calls are made to none of the defined routes.

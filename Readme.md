@@ -32,7 +32,7 @@ _Open and configure package.json file based on our project requirement._
 * `"type" : "module"` to use es6 javascript environment or `"type" : "commonjs"` to use nodejs default javascript mode before introducing javascript es6.
 
 ## Step 3 : Creating our first web spplication using express.js framework on top of node.js
-_Install the Express.js library and adds it to your project's dependencies._ 
+_Install the Express.js library to our project using command `npm i express`_ 
 
 _Create a file called **index.js**, this file will be the main file of our express app. Every other modules will run through only this file. (filename should match the start script and "main" inside package.json)_
 

@@ -22,7 +22,7 @@ router.post('/login', (req, res)=>{
 export default router;
 ```
 * `const router = express.Router()` : Creates a new modular router instance to define and group route handlers separately from the main app.
-* after moving change all requests from `app.` to `router.` (eg: `app.get('/', (req, res)=>{...})` to `router.get('/', (req, res)=>{...})`) 
+* after moving all route handlers, change all handlers from `app.` to `router.` (eg: `app.get('/', (req, res)=>{...})` to `router.get('/', (req, res)=>{...})`) 
 
 
 ## Test to see if everything works fine.

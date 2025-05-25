@@ -10,6 +10,7 @@ This command will set up a new Node.js project in our project directory and crea
 Open and configure package.json file based on our project requirement.
 
 ```
+// package.json
 {
   "name": "express_project_name",
   "version": "1.0.0",
@@ -30,6 +31,8 @@ Open and configure package.json file based on our project requirement.
 * Nodemon should be installed using command `npm i nodemon -g`, then only the start script will work
 * `"type" : "module"` to use es6 javascript environment or `"type" : "commonjs"` to use nodejs default javascript mode before introducing javascript es6.
 
+## Step 3 : Creating our first web spplication using express.js framework on top of node.js
 
+_addwwr_
 
 

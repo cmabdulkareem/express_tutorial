@@ -37,10 +37,7 @@ _Open and configure package.json file based on our project requirement._
 2. _Create a file called **index.js**, this file will be the main file of our express app. Every other modules will run through only this file. (filename should match the start script and "main" inside package.json)_
 
 ```
-// Import the Express module (using ES6 modules syntax)
 import express from 'express';
-
-// Create an instance of an Express application
 const app = express();
 
 // Start the server and listen on port 3000
@@ -49,6 +46,10 @@ app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
 ```
+
+* `import express from 'express';` : Imports the Express module (using ES6 modules syntax)
+* `const app = express();` : Give all the power of the Express library to the 'app' variable by creating an Express application instance
+* `app.listen(3000, ()=>{....})` : Start the server on port 3000 and log a message when it’s running
 
 
 

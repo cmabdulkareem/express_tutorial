@@ -23,6 +23,8 @@ app.listen(3000, ()=>{
 })
 ```
 
+## How it works
+
 ### 1. http get request handler (for the root route '/')
 _An HTTP GET request handler that responds to GET requests made to the root URL ('/')._
 

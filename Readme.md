@@ -61,7 +61,7 @@ router.post('/login', (req, res)=>{
     console.log(req.protocol);     // 'http'
     console.log(req.url);          // '/login'
     console.log(req.ip);           // '::1' ip address of the client
-    console.log(req.body);         // Data sent in POST/PUT (undefined when matching middleware is not used)
+    console.log(req.body);         // Payload : Data sent in POST/PUT (undefined when matching middleware is not used)
     console.log(req.headers);      // This prints an object containing all the incoming HTTP headers.
 })
 

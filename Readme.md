@@ -3,8 +3,8 @@ This chapter will help us to understand what is request (req) and response (res)
 ## What is request response cycle
 The request-response cycle is the fundamental process by which clients (like web browsers) and servers (like web servers) communicate over the internet, especially using the HTTP/HTTPS protocols.
 
-Client Sends a Request  ---> Server Receives the Request (req)
-Server Sends a Response (res) <--- Client Receives the response
+* Client Sends a Request  ---> Server Receives the Request (req)
+* Server Sends a Response (res) <--- Client Receives the response
 
 Sample http request object:
 ```

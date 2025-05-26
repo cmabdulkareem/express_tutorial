@@ -6,7 +6,7 @@ The request-response cycle is the fundamental process by which clients (like web
 * Client Sends a Request (browser constructs an object and send)  ---> Server Receives the Request (req object)
 * Server Sends a Response (resbackend server constructs and object and send) <--- Client Receives the response (res object`)
 
-Sample http request object:
+**Sample http request object:**
 ```
 {
   "method": "GET",
@@ -23,6 +23,24 @@ Sample http request object:
   "body": {}
 }
 ```
+**Sample response object**
+```
+{
+  "statusCode": 200,
+  "statusMessage": "OK",
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-cache",
+    "x-powered-by": "Express"
+  },
+  "body": {
+    "id": "123",
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+  }
+}
+```
+
 
 ## Handling requests inside an express.js app
 ```

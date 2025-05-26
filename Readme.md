@@ -41,7 +41,6 @@ The request-response cycle is the fundamental process by which clients (like web
 }
 ```
 
-
 ## Handling requests inside an express.js app
 ```
 /routes/userRoutes.js
@@ -67,8 +66,6 @@ router.post('/login', (req, res)=>{
 
 router.get('/user/:id', (req, res)=>{
     console.log(req.params.id);    // '123' accesses the value of the :id parameter from the URL path.
-    console.log(req.url);          // '/user/123'
-    console.log(req.path);         // '/user'
 })
 
 router.get('/products', (req, res)=>{
@@ -84,4 +81,54 @@ export default router;
 * `router.get('/user/:id', (req, res)=>{...})` - send a get request using browser or postman to http://localhost:3000/user/123 to see the result.
 
 * `router.get('/products?sorting=lth', (req, res)=>{...})` - send a get request using browser or postman to http://localhost:3000/products?sorting=lth to see the result.
+
+## Handling responses inside an express.js app
+
+```
+/routes/userRoutes.js
+import express from 'express'
+const router = express.Router()
+
+router.get('/', (req, res)=>{
+    let isLoggedIn = true
+    
+    if(isLoggedIn){
+        res.status(300).redirect('/login')
+        // redirects the route to '/login' and response to the client with a status code 300
+    }else{
+        res.status(200).send("Response from '/home' url")
+        //  sends a plain text response to the client with a status code 200
+    } 
+})
+
+router.get('/login', (req, res)=>{
+    res.status(200).json({message:"Response from '/login' url"})    
+    // sends a json response to the client with a status code 200
+})
+
+router.post('/login', (req, res)=>{
+    console.log(req.method);       // 'POST'
+    console.log(req.protocol);     // 'http'
+    console.log(req.url);          // '/login'
+    console.log(req.ip);           // '::1' ip address of the client
+    console.log(req.body);         // Payload : Data sent in POST/PUT (undefined when matching middleware is not used)
+    console.log(req.headers);      // This prints an object containing all the incoming HTTP headers.
+})
+
+router.get('/user/:id', (req, res)=>{
+    console.log(req.params.id);    // '123' accesses the value of the :id parameter from the URL path.
+})
+
+router.get('/products', (req, res)=>{
+    console.log(req.query);        // '{ sorting: 'lth' }' if URL is /products?sorting=lth
+    console.log(req.url);          // '/products?sorting=lth'
+    console.log(req.path);         // '/products'
+})
+
+export default router;
+```
+
+* `router.get('/', (req, res)=>{.....})` - send a get request using postman/browser to http://localhost:3000/ to see the result.
+
+* `router.get('/login', (req, res)=>{.....})` - send a get request using postman/browser to http://localhost:3000/login to see the result.
 

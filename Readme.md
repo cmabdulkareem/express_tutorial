@@ -1,9 +1,32 @@
-This chapter shows how to create route modules to organise our code better. (cleaner, easier to maintain)
+This chapter will help us to understand what is request (req) and response (res) object and how it can be used inside an express.js project 
 
-### Move all user related routes from index.js to /routes/userRoutes.js
+## What is request response cycle
+The request-response cycle is the fundamental process by which clients (like web browsers) and servers (like web servers) communicate over the internet, especially using the HTTP/HTTPS protocols.
+
+Client Sends a Request  ---> Server Receives the Request (req)
+Server Sends a Response (res) <--- Client Receives the response
+
+Sample http request object:
+```
+{
+  "method": "GET",
+  "url": "/users?id=123",
+  "headers": {
+    "host": "example.com",
+    "user-agent": "Mozilla/5.0",
+    "accept": "application/json",
+    "authorization": "Bearer your_token_here"
+  },
+  "query": {
+    "id": "123"
+  },
+  "body": {}
+}
+```
+
+## Handling requests inside an express.js app
 ```
 /routes/userRoutes.js
-
 import express from 'express'
 const router = express.Router()
 
@@ -16,54 +39,31 @@ router.get('/login', (req, res)=>{
 })
 
 router.post('/login', (req, res)=>{
-    res.json("Login success")
+    console.log(req.method);       // 'POST'
+    console.log(req.protocol);     // 'http'
+    console.log(req.url);          // '/login'
+    console.log(req.ip);           // '::1' ip address of the client
+    console.log(req.body);         // Data sent in POST/PUT (undefined when matching middleware is not used)
+    console.log(req.headers);      // This prints an object containing all the incoming HTTP headers.
+})
+
+router.get('/user/:id', (req, res)=>{
+    console.log(req.params.id);    // '123' accesses the value of the :id parameter from the URL path.
+    console.log(req.url);          // '/user/123'
+    console.log(req.path);         // '/user'
+})
+
+router.get('/products', (req, res)=>{
+    console.log(req.query);        // '{ sorting: 'lth' }' if URL is /products?sorting=lth
+    console.log(req.url);          // '/products?sorting=lth'
+    console.log(req.path);         // '/products'
 })
 
 export default router;
 ```
-* `const router = express.Router()` : Creates a new modular router instance to define and group route handlers separately from the main app.
-* after moving all route handlers, change all handlers from `app.` to `router.` (eg: `app.get('/', (req, res)=>{...})` to `router.get('/', (req, res)=>{...})`) 
+* `router.post('/login', (req, res)=>{.....})` - send a post request using postman to http://localhost:3000/login with body (as x-www-form-urlencoded with a username field and password field) to see the result.
 
-### Move all admin related routes from index.js to /routes/adminRoutes.js
-```
-/routes/adminRoutes.js
-import express from 'express'
-const router = express.Router()
+* `router.get('/user/:id', (req, res)=>{...})` - send a get request using browser or postman to http://localhost:3000/user/123 to see the result.
 
-router.get('/', (req, res)=>{
-    res.json("Response from '/admin/' url")
-})
+* `router.get('/products?sorting=lth', (req, res)=>{...})` - send a get request using browser or postman to http://localhost:3000/products?sorting=lth to see the result.
 
-router.get('/login', (req, res)=>{
-    res.json("Response from '/admin/login' url")
-})
-
-export default router;
-```
-* `const router = express.Router()` : Creates a new modular router instance to define and group route handlers separately from the main app.
-* after moving all route handlers, change all handlers from `app.` to `router.` (eg: `app.get('/', (req, res)=>{...})` to `router.get('/', (req, res)=>{...})`)
-* no need `/admin/` pefix for any of the admin routes, this can be configured in the next step.
-
-### Import newly created routes to main file (index.js) and use them in middlewre
-
-/index.js
-
-```
-import express from 'express'
-import userRoutes from './routes/userRoutes.js';
-import adminRoutes from './routes/adminRoutes.js';
-const app = express()
-
-app.use('/', userRoutes)
-app.use('/admin/', adminRoutes)
-
-app.listen(3000, ()=>{
-    console.log("Server running on port 3000");
-})
-```
-
-* `app.use('/', userRoutes)` :
-* `app.use('/admin/, adminRoutes)` :
-They connect the route handlers from userRoutes to the root path / and the ones from adminRoutes to the /admin path, organizing the app’s URLs accordingly.
-
-## Test to see if everything works fine.

@@ -61,7 +61,7 @@ app.listen(3000, ()=>{
     console.log("Server running on port 3000");
 })
 ```
-
+* import routing functions using `import userRoutes from './routes/userRoutes.js';` and `import adminRoutes from './routes/adminRoutes.js';`
 * `app.use('/', userRoutes)` :
 * `app.use('/admin/, adminRoutes)` :
 They connect the route handlers from userRoutes to the root path / and the ones from adminRoutes to the /admin path, organizing the app’s URLs accordingly.
